@@ -41,12 +41,12 @@ namespace Permission
             });
 
             services.AddControllers();
-            
+
             // In production, the Vue files will be served from this directory
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "appclient/dist";
-            //});
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "appclient/dist";
+            });
 
             services.AddAutoMapperSetup();
 
@@ -63,18 +63,18 @@ namespace Permission
 
             app.UseCors();
 
-            //app.UseSpaStaticFiles();
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "appclient";
+            app.UseSpaStaticFiles();
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "appclient";
 
-            //    if (env.IsDevelopment())
-            //    {
-            //        //spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-            //        // Launch development server for Vue.js
-            //        spa.UseVueDevelopmentServer();
-            //    }
-            //});
+                if (env.IsDevelopment())
+                {
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+                    // Launch development server for Vue.js
+                    spa.UseVueDevelopmentServer();
+                }
+            });
 
             app.UseRouting();
 
