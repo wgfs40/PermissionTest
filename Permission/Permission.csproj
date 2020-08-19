@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="appclient\" />
+    <Folder Include="appclient\test\" />
   </ItemGroup>
 
 
