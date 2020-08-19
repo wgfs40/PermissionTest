@@ -63,6 +63,17 @@ namespace Permission
 
             app.UseCors();
 
+           
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
             app.UseSpaStaticFiles();
             app.UseSpa(spa =>
             {
@@ -74,15 +85,6 @@ namespace Permission
                     // Launch development server for Vue.js
                     spa.UseVueDevelopmentServer();
                 }
-            });
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
             });
         }
     }
