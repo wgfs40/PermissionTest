@@ -20,5 +20,9 @@
     <ProjectReference Include="..\Permission.IoC\Permission.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="appclient\" />
+  </ItemGroup>
+
 
 </Project>
