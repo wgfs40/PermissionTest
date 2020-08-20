@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Permission.Application.Interfaces;
 using Permission.Application.ViewModels;
 using Permission.Domain.Interfaces;
@@ -21,7 +22,9 @@ namespace Permission.Application.Services
 
         public IEnumerable<PermissionViewModel> GetAll()
         {
-            var permissions = _permissionRespository.GetAll().ToList();
+            var permissions = _permissionRespository.GetAll()
+                .Include(p => p.PermissionType)
+                .ToList();
             var mapPermission = _mapper.Map<List<PermissionViewModel>>(permissions);
             return mapPermission;
         }

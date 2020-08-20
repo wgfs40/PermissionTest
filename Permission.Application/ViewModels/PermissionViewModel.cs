@@ -14,6 +14,8 @@ namespace Permission.Application.ViewModels
         [Required(ErrorMessage = "The PermissionTypeId is Required")]
         public int PermissionTypeId { get;  set; }
 
+        public string PermissionTypeDescripcion { get; set; }
+
         [Required(ErrorMessage = "The PermitDate is Required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy}")]
         public DateTime PermitDate { get;  set; }

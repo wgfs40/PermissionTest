@@ -8,7 +8,8 @@ namespace Permission.Application.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<permit.Permission, PermissionViewModel>();
+            CreateMap<permit.Permission, PermissionViewModel>()
+                .ForMember(p => p.PermissionTypeDescripcion,model => model.MapFrom(vModel => vModel.PermissionType.Description));
             CreateMap<permit.PermissionType, PermissionTypeViewModel>();
         }
     }
